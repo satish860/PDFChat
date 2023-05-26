@@ -1,3 +1,3 @@
-interface files {
+export interface Files {
     name: string;
 }

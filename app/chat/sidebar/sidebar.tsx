@@ -13,11 +13,12 @@ import {
 import { Button } from "@/components/ui/button"
 import DropZone from "@/components/drop-zone"
 import { useState } from "react"
+import { Files } from "@/types/files";
 
 const SideBar = () => {
-  const [files,setFiles] = useState<files[]>([]);
+  const [files,setFiles] = useState<Files[]>([]);
 
-  const fileAddedEvent = async (e: files) => {
+  const fileAddedEvent = async (e: Files) => {
     console.log("In file added event:"+e);
     setFiles(files.concat(e))
   }

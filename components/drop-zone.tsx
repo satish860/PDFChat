@@ -2,6 +2,7 @@
 import { useCallback } from "react"
 import { useDropzone } from "react-dropzone"
 import { Uploader } from "uploader";
+import { Files } from "@/types/files";
 
 interface props {
     className: string;
@@ -14,7 +15,7 @@ const DropZone = ({className,fileAddedEvent} : props) => {
         debugger;
         const {fileUrl} = await uploader.uploadFile(acceptedFiles[0]);
         console.log("File url:"+fileUrl);
-        fileAddedEvent(acceptedFiles as files) 
+        fileAddedEvent(acceptedFiles as Files) 
     }, [fileAddedEvent, uploader])
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
