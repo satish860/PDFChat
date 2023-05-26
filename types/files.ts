@@ -1,0 +1,3 @@
+interface files {
+    name: string;
+}
