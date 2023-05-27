@@ -7,6 +7,8 @@ import { Uploader } from "uploader"
 
 import { Files } from "@/types/files"
 import { Progress } from "@/components/ui/progress"
+import { v4 as uuidv4 } from 'uuid';
+import axios from "axios"
 
 interface props {
   className: string
@@ -24,8 +26,17 @@ export const  DropZone = ({ className, fileAddedEvent }: props) => {
       const { fileUrl } = await uploader.uploadFile(acceptedFiles[0], {
         onProgress: onProgress,
       })
+      const uid = uuidv4();
+      const record = await axios.post("/api", {
+        file_url: fileUrl,
+        file_name: acceptedFiles[0].name,
+        doc_id: uid,
+        index_status: "pending",
+        user_id: uuidv4(),
+      });
+
       if (fileAddedEvent) fileAddedEvent(acceptedFiles as Files)
-      router.push(`/chat/${fileUrl}`)
+      router.push(`/chat/${uid}`)
     },
     [fileAddedEvent, router, uploader]
   )
