@@ -4,7 +4,7 @@ import { getXataClient } from "@/src/xata"
 const xata = getXataClient()
 
 export async function POST(request: Request) {
-    const res : document = await request.json();
+    const res  = await request.json();
     const record = await xata.db.Docs.create({
         user_id: res.user_id,
         docs_id: res.docs_id,
