@@ -1,7 +1,9 @@
+
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
+import { DropZone } from "@/components/drop-zone";
 
 export default function IndexPage() {
   return (
@@ -32,6 +34,12 @@ export default function IndexPage() {
           GitHub
         </Link>
       </div>
+     <div>
+      <div className="flex items-center justify-center">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">Chat with any docs</h1>
+      </div>
+      <DropZone className="flex h-96 w-full flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300" />
+     </div>
     </section>
   )
 }
