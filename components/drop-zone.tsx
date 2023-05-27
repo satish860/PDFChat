@@ -35,7 +35,7 @@ export const  DropZone = ({ className, fileAddedEvent }: props) => {
     setProgress(progress)
   }
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop ,maxFiles: 1 })
   return (
     <form>
         <div className="h-2.5 w-full rounded-full bg-gray-200 dark:bg-gray-700">
